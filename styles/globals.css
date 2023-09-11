@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.bg{
+  background-image: url(../public/Header.png);
+  background-repeat: no-repeat;
+}
+.btn {
+  @apply rounded-md py-3 px-10 text-white transition-all text-center text-sm flex items-center justify-center border border-rose-700 my-6 bg-rose-700 hover:bg-white hover:text-rose-700;
+}
+.head_text {
+  @apply  text-4xl font-normal leading-10 text-white md:text-5xl;
+}
+.desc {
+  @apply text-xs text-white md:text-[1.1rem] leading-6 mt-4 ;
+}
