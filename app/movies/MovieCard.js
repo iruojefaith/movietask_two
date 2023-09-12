@@ -55,9 +55,9 @@ const MovieCard = ({ photo, sliceTitle }) => {
       </li>
 
       <span className='card_content '>
-        <h2 className='card_title cursor-pointer '>
-          <Link href={`/image/${photo.id}`}>{sliceTitle(photo.title, 18)}</Link>
-          <Link href={`/image/${photo.id}`}>
+        <h2 className='card_title cursor-pointer'>
+          <Link href={`/movies/${photo.id}`}>{sliceTitle(photo.title, 18)}</Link>
+          <Link href={`/movies/${photo.id}`}>
             <button className='btn my-2'>View Details</button>
           </Link>
         </h2>
