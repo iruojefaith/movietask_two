@@ -29,6 +29,9 @@ body {
 .bg{
   background-image: url(../public/Header.png);
   background-repeat: no-repeat;
+  width: 100%;
+  object-fit: cover;
+  overflow-x: hidden;
 }
 .btn {
   @apply rounded-md py-3 px-10 text-white transition-all text-center text-sm flex items-center justify-center border border-rose-700 my-6 bg-rose-700 hover:bg-white hover:text-rose-700;
@@ -38,4 +41,7 @@ body {
 }
 .desc {
   @apply text-xs text-white md:text-[1.1rem] leading-6 mt-4 ;
+}
+.contain {
+  margin: auto;
 }

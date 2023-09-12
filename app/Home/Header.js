@@ -2,8 +2,8 @@ import React from 'react'
 import Image from 'next/image';
 const Header = () => {
   return (
-    <div className='absolute p-24 mt-16 '>
-      <div className='md:w-2/6 '>
+    <div className='absolute px-4 md:px-24 py-24 mt-36 md:mt-20 '>
+      <div className=' w-5/6 md:w-2/6 '>
         <h1 className='head_text'>John Wick 3 : Parabellum</h1>
         <div className='flex flex-row gap-8 my-6'>
           <div className='flex flex-row gap-2'>
@@ -16,15 +16,14 @@ const Header = () => {
           </div>
         </div>
         <p className='desc'>John Wick is on the run after killing a member of the international
-             assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
+             assassins&lsquo; guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
       </div>
         
         <div>
           <button className='rounded-md py-3 px-5 text-white transition-all text-center text-sm flex items-center justify-center border border-rose-700 my-6 bg-rose-700 hover:bg-transparent hover:text-white'>
              <Image src="/play.png" alt="imdb logo" width={20} height={20} quality={80}/>
              WATCH TRAILER
-          </button>
-           
+          </button>   
         </div>
     </div>
   )
