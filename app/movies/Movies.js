@@ -5,25 +5,30 @@ import Header from "../Home/Header";
 import Nav from "../components/Nav";
 
 
+
 const Movies = () => {
-  const [displayPhotos, setDisplayPhotos] = useState([]);
+  const [displayMovies, setdisplayMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [photos, setPhotos] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/photos"
+        const res = await fetch(
+          "https://api.themoviedb.org/3/movie/top_rated?api_key=b793e692c78d76710fe708c20f2d6e82"
         );
-        const data = await response.json();
-        const photosWithFavorites = data.map((photo) => ({
-          ...photo,
+        const data = await res.json();
+        console.log(data)
+        setMovies(data?.results);
+        setdisplayMovies(data?.results);
+        const moviesWithFavorites = res.data.map((movie) => ({
+          ...movie,
           isFavorite: false,
         }));
-        setPhotos(photosWithFavorites);
-        setDisplayPhotos(photosWithFavorites);
+
+        setMovies(moviesWithFavorites);
+        setdisplayMovies(moviesWithFavorites);
         setLoading(false);
       } catch (error) {
         console.log("Error:", error);
@@ -34,6 +39,7 @@ const Movies = () => {
     fetchData();
   }, []);
 
+
   useEffect(() => {
     const storedFavorites = localStorage.getItem("favorites");
     if (storedFavorites) {
@@ -41,26 +47,26 @@ const Movies = () => {
     }
   }, []);
 
-  const toggleFavorite = () => {
-    setPhotos((prevPhotos) =>
-      prevPhotos.map((photo) =>
-        photo.id === id ? { ...photo, isFavorite: !photo.isFavorite } : photo
+  const toggleFavorite = (id) => {
+    setMovies((prevMovies) =>
+      prevMovies.map((movie) =>
+        movie.id === id ? { ...movie, isFavorite: !movie.isFavorite } : movie
       )
     );
   };
 
   useEffect(() => {
-    const updatedFavorites = photos.filter((photo) => photo.isFavorite);
+    const updatedFavorites = movies.filter((movie) => movie.isFavorite);
     setFavorites(updatedFavorites);
-  }, [photos]);
+  }, []);
 
   const handleChange = (e) => {
     setLoading(true);
     const val = e.target.value;
-    const matchingPhotos = photos.filter((photo) =>
-      photo.title.toLowerCase().startsWith(val.toLowerCase())
+    const matchingMovies = movies.filter((movie) =>
+      movie.title.toLowerCase().startsWith(val.toLowerCase())
     );
-    setDisplayPhotos(matchingPhotos);
+    setdisplayMovies(matchingMovies);
     setLoading(false);
   };
 
@@ -74,24 +80,15 @@ const Movies = () => {
   return (
     <div className=" justify-center align-center">
       <main className="bg flex h-[50rem] min-w-full flex-col items-center justify-between px-4 md:px-24 relative">
-      <Nav handleChange={handleChange}/>
+          <Nav handleChange={handleChange}/>
           <Header />
       </main>
-     
-        <div className="flex flex-col justify-center items-center min-w-0 break-words w-full mb-6 shadow-lg rounded mx-auto">
-          <div className="px-4 py-5 flex-auto">
-            <div className="tab-content tab-space">
-              <div>
-                <MovieDisplay
-                  toggleFavorite={toggleFavorite}
-                  loading={loading}
-                  displayPhotos={displayPhotos}
-                  sliceTitle={sliceTitle}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+          <MovieDisplay
+            toggleFavorite={toggleFavorite}
+            loading={loading}
+            displayMovies={displayMovies}
+            sliceTitle={sliceTitle}
+          />
       </div>
   );
 };
