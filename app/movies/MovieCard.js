@@ -7,6 +7,7 @@ import Image from "next/image";
 
 const MovieCard = ({ movie, sliceTitle }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  
 
   const IMAGE_URL = "https://image.tmdb.org/t/p/original/";
 
@@ -62,8 +63,8 @@ const MovieCard = ({ movie, sliceTitle }) => {
         </button>
       </li>
       <img src={`${IMAGE_URL}${movie.poster_path}`} alt={movie.title}  data-testid="movie-poster" />
-      <p className='card_text flex place-items-center my-[1rem] gap-[.2rem] md:gap-[1rem]' data-testid="movie-release-date">
-                      {movie.release_date} {" "}    
+      <p className='text-gray-400 flex place-items-center my-[1rem] gap-[.2rem] md:gap-[1rem]' data-testid="movie-release-date">
+                      {movie.release_date.slice(0,4)} {" "}    
       </p> 
                    
                     
@@ -81,8 +82,12 @@ const MovieCard = ({ movie, sliceTitle }) => {
                 <Image src="/tomato.png" alt="imdb logo" width={15} height={15} quality={80}/>
                 {movie.vote_count}
           </span>
+          
                       
           </p>
+          <span className="text-gray-400 text-xs">
+            Action,Adventure,Drama
+          </span>
     </span>
   );
 };

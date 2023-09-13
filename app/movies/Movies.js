@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import MovieDisplay from './MovieDisplay';
 import Header from "../Home/Header";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 
 
@@ -10,13 +11,14 @@ const Movies = () => {
   const [displayMovies, setdisplayMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const [pageNo, setPageNo] = useState(1)
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          "https://api.themoviedb.org/3/movie/top_rated?api_key=b793e692c78d76710fe708c20f2d6e82"
+          `https://api.themoviedb.org/3/movie/top_rated?api_key=b793e692c78d76710fe708c20f2d6e82&page=${pageNo}`
         );
         const data = await res.json();
         console.log(data)
@@ -89,6 +91,7 @@ const Movies = () => {
             displayMovies={displayMovies}
             sliceTitle={sliceTitle}
           />
+          <Footer />
       </div>
   );
 };

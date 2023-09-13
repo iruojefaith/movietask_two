@@ -3,7 +3,7 @@ import Image from 'next/image';
 const Header = () => {
   return (
     <div className='absolute px-4 md:px-24 py-24 mt-36 md:mt-20 '>
-      <div className=' w-5/6 md:w-2/6 '>
+      <div className=' w-5/6 md:w-3/6 lg:w-2/6'>
         <h1 className='head_text'>John Wick 3 : Parabellum</h1>
         <div className='flex flex-row gap-8 my-6'>
           <div className='flex flex-row gap-2'>

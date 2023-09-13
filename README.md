@@ -35,7 +35,7 @@ Install the dependencies:
 shell
 Copy code
 cd project-directory
-### `npx create-next-app@latest`
+### `npm install`
 
 ## Running the Application
 First, run the development server:
