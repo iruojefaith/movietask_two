@@ -1,5 +1,5 @@
 
-
+import Aside from "../Aside";
 import SideBar from "../Sidebar";
 
 async function getMovie(movieId) {
@@ -16,7 +16,7 @@ export default async function MoviePage({ params }) {
   return (
     <div className="w-full ">
       <SideBar />
-      <div className="px-10 md:pt-8 flex flex-col items-center content-center max-w-6xl mx-auto md:space-x-6">
+      <div className="px-5 md:pt-8 flex flex-col justify-between content-center max-w-5xl mx-auto md:space-x-">
         <img src={`${IMAGE_URL}${movie.backdrop_path || movie.poster_path
           }`}
           width={500}
@@ -30,7 +30,8 @@ export default async function MoviePage({ params }) {
           blurDataURL="/spinner.svg"
           alt="Movie poster"
         />
-        <div className="p-2">
+        <div className="p-2 grid grid-cols-1 md:grid-cols-3 gap-6 w-12/12">
+         <div className="p-2 col-span-2">
           <h2 className="text-lg mb-3 font-bold">
             {movie.title || movie.name}
           </h2>
@@ -46,7 +47,10 @@ export default async function MoviePage({ params }) {
             <span className="font-semibold mr-1">Rating:</span>
             {movie.vote_count}
           </p>
+        </div> 
+        <Aside />
         </div>
+        
       </div>
     </div>
   );
