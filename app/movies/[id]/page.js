@@ -3,7 +3,7 @@
 
 import {useState, useEffect} from 'react'
 import Aside from "../Aside";
-import SideBar from "../Sidebar";
+import SideBar from "../../components/Sidebar";
 import {GiClockwork} from 'react-icons/gi'
 
 const MovieDetails = ({params}) => {

@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 
 const Movies = () => {
-  const [displayMovies, setdisplayMovies] = useState([]);
+  const [displaymovies, setdisplayMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [pageNo, setPageNo] = useState(1)
@@ -88,7 +88,7 @@ const Movies = () => {
           <MovieDisplay
             toggleFavorite={toggleFavorite}
             loading={loading}
-            displayMovies={displayMovies}
+            displaymovies={displaymovies}
             sliceTitle={sliceTitle}
           />
           <Footer />

@@ -6,8 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const MovieCard = ({ movie, sliceTitle }) => {
+
   const [isFavorite, setIsFavorite] = useState(false);
   
+ 
 
   const IMAGE_URL = "https://image.tmdb.org/t/p/original/";
 
@@ -33,6 +35,7 @@ const MovieCard = ({ movie, sliceTitle }) => {
       setIsFavorite(true);
     }
   }, []);
+    
 
   return (
     <span className='' key={movie.id}>
@@ -91,5 +94,6 @@ const MovieCard = ({ movie, sliceTitle }) => {
     </span>
   );
 };
+  
 
 export default MovieCard;
