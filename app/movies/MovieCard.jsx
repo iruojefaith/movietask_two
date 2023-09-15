@@ -38,14 +38,14 @@ const MovieCard = ({ movie, sliceTitle }) => {
     
 
   return (
-    <span className='' key={movie.id}>
-      <li className='absolute '>
+    <span data-testid="movie-card" key={movie.id}>
+      <li className=' flex flex-row-reverse w-auto relative'>
         <button
           onClick={() => handleMovieClick(movie.id)}
-          className={isFavorite ? "favorite" : "absolute p-3 cursor-pointer left-44 md:left-48 "}
+          className={isFavorite ? "favorite" : "absolute p-3 cursor-pointer  "}
         >
           {isFavorite ? (
-            <div className="bg-[#ffffff8c] w-6 h-6 rounded-full flex justify-center align-middle place-items-center p-3">
+            <div className="bg-[#ffffff8c] w-6 h-6 rounded-full flex justify-center align-middle place-items-center mt-3 -ml-9 absolute">
             ❤️
             </div>
           ) : (
@@ -79,17 +79,17 @@ const MovieCard = ({ movie, sliceTitle }) => {
       <p className='flex justify-between place-items-center my-[1rem] gap-[2rem] '>     
           <span className=' flex place-items-center gap-2'>
                 <Image src="/imdb.png" alt="imdb logo" width={35} height={10} quality={80}/>
-                {movie.vote_average}
+                {movie.vote_average}/100
            </span>
           <span  className=' flex place-items-center gap-2'>
                 <Image src="/tomato.png" alt="imdb logo" width={15} height={15} quality={80}/>
-                {movie.vote_count}
+              { parseInt(`${movie.popularity}`)} %
           </span>
           
                       
           </p>
           <span className="text-gray-400 text-xs">
-            Action,Adventure,Drama
+           Action,Horror,Comedy
           </span>
     </span>
   );

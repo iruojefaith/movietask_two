@@ -32,7 +32,6 @@ const Search = ( {handleChange }) => {
           </div>       
         </div>
       </div>
-      {/* <Tab /> */}
 
     </div>
   );
