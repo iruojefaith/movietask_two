@@ -49,8 +49,8 @@ const SideBar = () => {
             <div>
                 
                 <menu className='flex flex-col menu-items py-4'>
-                    {sideBarMenuItems.map((menuItem) =>
-                    <Link href={menuItem.path} className='flex items-center gap-2 hover:ml-2 my-4'><span>{menuItem.icon}</span> <h6>{menuItem.name}</h6> </Link>
+                    {sideBarMenuItems.map((menuItem, id) =>
+                    <Link href={menuItem.path} className='flex items-center gap-2 hover:ml-2 my-4' key={id}><span>{menuItem.icon}</span> <h6>{menuItem.name}</h6> </Link>
                     )}
                 </menu>
                 <br />
