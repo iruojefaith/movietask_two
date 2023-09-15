@@ -84,8 +84,8 @@ const MovieDetails = ({params}) => {
           <div className='w-full lg:w-1/5 flex flex-col p-2'>
             <h5 className='font-bold '>Produced by:</h5>
                      
-                      {!movieDetails.production_companies ? "Loading" : movieDetails.production_companies.map((company) => (
-                          <p className='text-rose-700'>{company.name}</p>
+                      {!movieDetails.production_companies ? "Loading" : movieDetails.production_companies.map((company, id) => (
+                          <p className='text-rose-700' key={id}>{company.name}</p>
                       ))}
             </div>
             <button className='bg-rose-700 text-white rounded-md py-3 px-8 flex place-items-center gap-2 mb-3 w-auto '>Top rated movies #{movieDetails.popularity}</button>
