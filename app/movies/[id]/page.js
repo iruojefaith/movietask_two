@@ -77,8 +77,8 @@ const MovieDetails = ({params}) => {
           
             <div className="p-2 grid grid-cols-1 md:grid-cols-3 gap-6 w-12/12"> 
              <div className="p-2 col-span-2">   
-                <p className="text-lg mb-3 ">
-                  <span className="font-semibold mr-1" data-testid="movie-overview">Overview:</span>
+                <p className="text-lg mb-3 text-gray-500">
+                  <span className="font-semibold mr-1 text-black" data-testid="movie-overview">Overview:</span>
                   {movieDetails.overview}
                 </p>
           <div className='w-full lg:w-1/5 flex flex-col p-2'>

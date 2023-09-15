@@ -1,5 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
+import {AiFillPlayCircle} from 'react-icons/ai'
+
 const Header = () => {
   return (
     <div className='absolute px-4 md:px-24 py-24 mt-36 md:mt-20 '>
@@ -21,7 +23,7 @@ const Header = () => {
         
         <div>
           <button className='rounded-md py-3 px-5 text-white transition-all text-center text-sm flex items-center justify-center border border-rose-700 my-6 bg-rose-700 hover:bg-transparent hover:text-white'>
-             <Image src="/play.png" alt="imdb logo" width={20} height={20} quality={80}/>
+             <AiFillPlayCircle className='text-white w-5 h-5 mr-2'/>
              WATCH TRAILER
           </button>   
         </div>
